@@ -914,7 +914,7 @@ function submitToManager() {
   const sigC = document.getElementById('sigConsultant');
   const ctxC = sigC.getContext('2d');
   const blank = !ctxC.getImageData(0,0,sigC.width,sigC.height).data.some(v => v !== 0);
-  if (blank) { showToast('Veuillez signer la timesheet avant de l'envoyer.', 'error'); return; }
+  if (blank) { showToast('Veuillez signer la timesheet avant de soumettre.', 'error'); return; }
 
   pendingSummary = buildSummary();
 
@@ -942,7 +942,7 @@ async function approveAndSend() {
   const sigM = document.getElementById('sigManagerCanvas');
   const ctxM = sigM.getContext('2d');
   const blank = !ctxM.getImageData(0,0,sigM.width,sigM.height).data.some(v => v !== 0);
-  if (blank) { showToast('Le manager doit signer avant d'approuver.', 'error'); return; }
+  if (blank) { showToast('Le manager doit signer avant d\'approuver.', 'error'); return; }
 
   const btn = document.getElementById('btnManagerApprove');
   btn.disabled = true;
