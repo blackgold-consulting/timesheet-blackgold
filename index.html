@@ -498,6 +498,7 @@ canvas.sig-canvas { width: 100%; height: 100%; display: block; border-radius: 2p
           <option>Juillet</option><option>Août</option><option>Septembre</option>
           <option>Octobre</option><option>Novembre</option><option>Décembre</option>
         </select>
+
       </div>
       <div class="form-group">
         <label>Année</label>
@@ -792,30 +793,26 @@ function onMonthChange() {
   updateProgress();
 }
 
-// Init calendrier + listeners — tout dans DOMContentLoaded
-window.addEventListener('DOMContentLoaded', function() {
-  // Listeners mois/année
+// Init — exécuté directement en fin de page
+(function init() {
   document.getElementById('monthSel').addEventListener('change', onMonthChange);
   document.getElementById('yearSel').addEventListener('change', onMonthChange);
 
-  // Live progress
-  ['lastName','firstName','monthSel','yearSel'].forEach(id => {
-    const el = document.getElementById(id);
+  ['lastName','firstName','monthSel','yearSel'].forEach(function(id) {
+    var el = document.getElementById(id);
     if (el) {
       el.addEventListener('input', updateProgress);
       el.addEventListener('change', updateProgress);
     }
   });
 
-  // Initialiser avec le mois courant
-  const now = new Date();
+  var now = new Date();
   document.getElementById('monthSel').value = MONTHS_FR[now.getMonth()];
   document.getElementById('yearSel').value = now.getFullYear();
   onMonthChange();
 
-  // Init signatures
   ['sigConsultant','sigBU'].forEach(initSig);
-});
+})();
 
 
 
