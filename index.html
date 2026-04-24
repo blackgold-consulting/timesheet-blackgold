@@ -794,25 +794,7 @@ function onMonthChange() {
 }
 
 // Init — exécuté directement en fin de page
-(function init() {
-  document.getElementById('monthSel').addEventListener('change', onMonthChange);
-  document.getElementById('yearSel').addEventListener('change', onMonthChange);
 
-  ['lastName','firstName','monthSel','yearSel'].forEach(function(id) {
-    var el = document.getElementById(id);
-    if (el) {
-      el.addEventListener('input', updateProgress);
-      el.addEventListener('change', updateProgress);
-    }
-  });
-
-  var now = new Date();
-  document.getElementById('monthSel').value = MONTHS_FR[now.getMonth()];
-  document.getElementById('yearSel').value = now.getFullYear();
-  onMonthChange();
-
-  ['sigConsultant','sigBU'].forEach(initSig);
-})();
 
 
 
@@ -1106,6 +1088,21 @@ function showToast(msg, type) {
   clearTimeout(t._t);
   t._t = setTimeout(() => t.classList.remove('show'), 3200);
 }
+
+// ── INITIALISATION ──
+document.getElementById('monthSel').addEventListener('change', onMonthChange);
+document.getElementById('yearSel').addEventListener('change', onMonthChange);
+['lastName','firstName','monthSel','yearSel'].forEach(function(id) {
+  var el = document.getElementById(id);
+  if (el) { el.addEventListener('input', updateProgress); el.addEventListener('change', updateProgress); }
+});
+(function() {
+  var now = new Date();
+  document.getElementById('monthSel').value = MONTHS_FR[now.getMonth()];
+  document.getElementById('yearSel').value = now.getFullYear();
+  onMonthChange();
+  ['sigConsultant','sigBU'].forEach(initSig);
+})();
 </script>
 </body>
 </html>
