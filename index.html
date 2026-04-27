@@ -651,30 +651,7 @@ canvas.sig-canvas { width: 100%; height: 100%; display: block; border-radius: 2p
   </div>
 </div>
 
-<!-- MODAL MANAGER SIGNATURE -->
-<div class="modal-backdrop" id="modalManager" style="z-index:1100">
-  <div class="modal" style="max-width:560px;text-align:left">
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
-      <div style="width:36px;height:36px;background:var(--gold-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px">✍</div>
-      <div>
-        <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600">Approbation Manager</div>
-        <div style="font-size:12px;color:var(--mid)" id="mgr-subtitle">Signature requise</div>
-      </div>
-    </div>
-    <div style="background:var(--bg);border-radius:var(--radius);padding:14px;margin-bottom:16px;font-size:13px" id="mgr-summary"></div>
-    <div style="margin-bottom:14px">
-      <div style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:var(--mid);margin-bottom:6px">Signature du Manager / Responsable de site</div>
-      <div style="border:1px dashed #D4C99A;border-radius:3px;background:white;height:90px;cursor:crosshair">
-        <canvas id="sigManagerCanvas" width="500" height="90" style="width:100%;height:100%;display:block;border-radius:3px"></canvas>
-      </div>
-      <button class="sig-clear" onclick="clearSig('sigManagerCanvas')">Effacer</button>
-    </div>
-    <div style="display:flex;gap:10px;justify-content:flex-end">
-      <button class="btn btn-outline" onclick="closeManagerModal()">Annuler</button>
-      <button class="btn btn-send" id="btnManagerApprove" onclick="approveAndSend()">✅ Approuver et envoyer à la RH</button>
-    </div>
-  </div>
-</div>
+
 
 <!-- TOAST -->
 <div class="toast" id="toast"></div>
@@ -904,71 +881,64 @@ function buildSummary() {
 
 // ── WORKFLOW ────────────────────────────────────────────────
 const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbzClwcTlK7ibFDR28MAqy4m2j09EaL4sdvOVQsGzSV2__Tc8DISmqWb5M36BxlzYVdW2w/exec';
-let pendingSummary = null;
 
-// ÉTAPE 1 : Consultant signe → ouvre modal Manager
-function submitToManager() {
+// ÉTAPE 1 : Consultant signe → envoie au Apps Script → Apps Script envoie email au Manager
+async function submitToManager() {
   if (!validate()) return;
 
-  // Vérifier que le consultant a signé
   const sigC = document.getElementById('sigConsultant');
   const ctxC = sigC.getContext('2d');
   const blank = !ctxC.getImageData(0,0,sigC.width,sigC.height).data.some(v => v !== 0);
   if (blank) { showToast('Veuillez signer la timesheet avant de soumettre.', 'error'); return; }
 
-  pendingSummary = buildSummary();
-
-  // Remplir le résumé dans la modal Manager
-  document.getElementById('mgr-subtitle').textContent =
-    `${pendingSummary.managerBU} — veuillez approuver la timesheet de ${pendingSummary.consultant}`;
-  document.getElementById('mgr-summary').innerHTML = `
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px 16px">
-      <div><span style="color:#888;font-size:11px">Consultant</span><br><b>${pendingSummary.consultant}</b></div>
-      <div><span style="color:#888;font-size:11px">Période</span><br><b>${pendingSummary.month} ${pendingSummary.year}</b></div>
-      <div><span style="color:#888;font-size:11px">Client</span><br><b>${pendingSummary.client}</b></div>
-      <div><span style="color:#888;font-size:11px">Jours présents</span><br><b style="color:#2E7D52">${pendingSummary.counts.P} jours — ${pendingSummary.rate}%</b></div>
-    </div>`;
-
-  document.getElementById('modalManager').classList.add('open');
-  initSig('sigManagerCanvas');
-}
-
-function closeManagerModal() {
-  document.getElementById('modalManager').classList.remove('open');
-}
-
-// ÉTAPE 2 : Manager signe → envoi webhook → RH + Drive
-async function approveAndSend() {
-  const sigM = document.getElementById('sigManagerCanvas');
-  const ctxM = sigM.getContext('2d');
-  const blank = !ctxM.getImageData(0,0,sigM.width,sigM.height).data.some(v => v !== 0);
-  if (blank) { showToast('Le manager doit signer avant d\'approuver.', 'error'); return; }
-
-  const btn = document.getElementById('btnManagerApprove');
+  const btn = document.getElementById('btnSend');
   btn.disabled = true;
   btn.textContent = '⏳ Envoi en cours…';
+  showToast('Envoi de la timesheet au Manager…');
 
-  // Ajouter signature manager en base64
-  pendingSummary.sigManagerData = sigM.toDataURL();
-  pendingSummary.sigConsultantData = document.getElementById('sigConsultant').toDataURL();
-  pendingSummary.approvedByManager = true;
+  const summary = buildSummary();
+  summary.sigConsultantData = sigC.toDataURL();
+  summary.step = 'consultant'; // indique que c'est l'étape consultant
 
   try {
-    await fetch(WEBHOOK_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(pendingSummary)
+    await new Promise((resolve) => {
+      const iframe = document.createElement('iframe');
+      iframe.name = 'submit_iframe_c';
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
+
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = WEBHOOK_URL;
+      form.target = 'submit_iframe_c';
+      form.style.display = 'none';
+
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = 'payload';
+      input.value = JSON.stringify(summary);
+      form.appendChild(input);
+      document.body.appendChild(form);
+      iframe.onload = () => resolve();
+      form.submit();
+      setTimeout(resolve, 4000);
     });
-    closeManagerModal();
-    showModal(pendingSummary, true);
+
+    // Afficher confirmation
+    document.getElementById('modalIcon').textContent = '📧';
+    document.getElementById('modalTitle').textContent = 'Timesheet envoyée au Manager';
+    document.getElementById('modalBody').innerHTML = `
+      Votre timesheet a été transmise à <strong>${summary.managerBU}</strong>
+      (<strong>${summary.managerEmail}</strong>) pour validation.<br><br>
+      Vous recevrez un email de confirmation une fois que votre Manager l'aura approuvée.`;
+    document.getElementById('modal').classList.add('open');
+
   } catch (err) {
-    closeManagerModal();
-    showModal(pendingSummary, false);
+    showToast('Erreur lors de l\'envoi. Veuillez réessayer.', 'error');
   }
 
   btn.disabled = false;
-  btn.textContent = '✅ Approuver et envoyer à la RH';
+  btn.textContent = '✍ Signer et envoyer au Manager';
 }
 
 function buildEmailHTML(s) {
