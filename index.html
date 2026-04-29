@@ -707,12 +707,7 @@ function buildCalendar(month, year) {
     `;
     tbody.appendChild(tr);
 
-    // Auto-mark weekends as JF visually (user can override)
-    if (isWE) {
-      setDay(d, 'JF', true);
-      const radio = document.getElementById(`d${d}_JF`);
-      if (radio) radio.checked = true;
-    }
+    // Weekends are styled differently but have no default status
   }
   updateTotals();
 }
