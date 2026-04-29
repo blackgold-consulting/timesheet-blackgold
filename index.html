@@ -897,8 +897,8 @@ async function submitToManager() {
   showToast('Envoi de la timesheet au Manager…');
 
   const summary = buildSummary();
-  summary.sigConsultantData = sigC.toDataURL();
-  summary.step = 'consultant'; // indique que c'est l'étape consultant
+  // NE PAS inclure la signature dans les données envoyées (trop lourd)
+  summary.step = 'consultant';
 
   try {
     await new Promise((resolve) => {

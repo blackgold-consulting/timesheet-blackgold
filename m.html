@@ -13,21 +13,21 @@
   --green: #2E7D52; --red: #C0392B; --radius: 3px;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Barlow', sans-serif; background: var(--bg); color: var(--black); min-height: 100vh; font-size: 14px; }
+body { font-family: "Barlow", sans-serif; background: var(--bg); color: var(--black); min-height: 100vh; font-size: 14px; }
 .header { background: var(--white); padding: 18px 40px; display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid var(--gold); box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
 .header-brand { display: flex; align-items: center; gap: 14px; }
-.header-sub { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; color: var(--mid); letter-spacing: 0.18em; text-transform: uppercase; margin-top: 1px; }
-.header-badge { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold); padding: 4px 12px; border-radius: 2px; }
+.header-sub { font-family: "Barlow Condensed", sans-serif; font-size: 11px; color: var(--mid); letter-spacing: 0.18em; text-transform: uppercase; margin-top: 1px; }
+.header-badge { font-family: "Barlow Condensed", sans-serif; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold); padding: 4px 12px; border-radius: 2px; }
 .main { max-width: 800px; margin: 0 auto; padding: 36px 24px 60px; }
 .card { background: var(--white); border: 1px solid #E8DFC8; border-radius: var(--radius); padding: 24px; margin-bottom: 24px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
-.card-title { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; color: var(--black); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 1px solid #EDE6D4; }
-.section-label { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
-.section-label::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, var(--border), transparent); }
+.card-title { font-family: "Cormorant Garamond", serif; font-size: 17px; font-weight: 600; color: var(--black); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 1px solid #EDE6D4; }
+.section-label { font-family: "Barlow Condensed", sans-serif; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.section-label::after { content: ""; flex: 1; height: 1px; background: linear-gradient(to right, var(--border), transparent); }
 .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 24px; font-size: 13px; }
 .info-item label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--mid); display: block; margin-bottom: 3px; }
 .info-item span { font-weight: 600; color: var(--black); }
 .cal-table { width: 100%; border-collapse: collapse; font-size: 12px; }
-.cal-table th { background: var(--black); color: var(--gold); font-family: 'Barlow Condensed', sans-serif; font-size: 11px; padding: 7px 10px; text-align: left; border: 1px solid #333; }
+.cal-table th { background: var(--black); color: var(--gold); font-family: "Barlow Condensed", sans-serif; font-size: 11px; padding: 7px 10px; text-align: left; border: 1px solid #333; }
 .cal-table td { border: 1px solid #E0D5BA; padding: 6px 10px; font-size: 12px; }
 .cal-table tr.weekend td { background: #F5EDD6; }
 .status-P { background: #EAF5EE; color: #2E7D52; font-weight: 600; }
@@ -39,31 +39,31 @@ body { font-family: 'Barlow', sans-serif; background: var(--bg); color: var(--bl
 .totals-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; }
 .total-box { background: var(--white); border: 1px solid #E8DFC8; border-radius: var(--radius); padding: 12px; text-align: center; }
 .total-box.highlight { background: var(--black); border-color: var(--gold); }
-.total-label { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--light); margin-bottom: 4px; }
+.total-label { font-family: "Barlow Condensed", sans-serif; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--light); margin-bottom: 4px; }
 .total-box.highlight .total-label { color: var(--gold); }
-.total-value { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: var(--black); }
+.total-value { font-family: "Cormorant Garamond", serif; font-size: 24px; font-weight: 600; color: var(--black); }
 .total-box.highlight .total-value { color: var(--white); }
 .sig-box { border: 1px solid #E0D5BA; border-radius: var(--radius); padding: 14px; background: var(--bg); }
-.sig-title { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid); margin-bottom: 8px; }
+.sig-title { font-family: "Barlow Condensed", sans-serif; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid); margin-bottom: 8px; }
 .sig-canvas-wrap { border: 1px dashed #D4C99A; border-radius: 2px; background: white; height: 90px; cursor: crosshair; }
 canvas { width: 100%; height: 100%; display: block; border-radius: 2px; }
-.sig-clear { font-size: 10px; color: var(--light); background: none; border: none; cursor: pointer; margin-top: 4px; font-family: 'Barlow', sans-serif; }
+.sig-clear { font-size: 10px; color: var(--light); background: none; border: none; cursor: pointer; margin-top: 4px; font-family: "Barlow", sans-serif; }
 .sig-clear:hover { color: var(--red); }
-.btn { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 10px 24px; border-radius: var(--radius); border: 1px solid var(--border); cursor: pointer; transition: all 0.15s; display: inline-flex; align-items: center; gap: 7px; }
+.btn { font-family: "Barlow Condensed", sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 10px 24px; border-radius: var(--radius); border: 1px solid var(--border); cursor: pointer; transition: all 0.15s; display: inline-flex; align-items: center; gap: 7px; }
 .btn-send { background: var(--gold); color: var(--black); border-color: var(--gold); font-weight: 600; }
 .btn-send:hover { background: var(--gold-light); }
 .btn-send:disabled { opacity: 0.5; cursor: not-allowed; }
-.btn-outline { background: transparent; color: var(--black); }
-.btn-outline:hover { background: var(--bg); }
 .actions { display: flex; gap: 12px; justify-content: flex-end; margin-top: 8px; }
 .alert-box { background: #FEF9EC; border: 1px solid var(--gold); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 20px; font-size: 13px; color: #8A6A1A; }
-.success-box { background: #EAF5EE; border: 1px solid #A8D5B5; border-radius: var(--radius); padding: 24px; text-align: center; display: none; }
-.success-box h2 { font-family: 'Cormorant Garamond', serif; font-size: 22px; margin-bottom: 8px; color: var(--green); }
-.loading { text-align: center; padding: 60px; font-size: 14px; color: var(--mid); }
+.success-box { background: #EAF5EE; border: 1px solid #A8D5B5; border-radius: var(--radius); padding: 32px; text-align: center; display: none; }
+.success-box h2 { font-family: "Cormorant Garamond", serif; font-size: 24px; margin-bottom: 8px; color: var(--green); }
+.loading { text-align: center; padding: 80px 24px; }
+.loading-spinner { font-size: 36px; margin-bottom: 16px; animation: spin 1.5s linear infinite; display: inline-block; }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.error-box { background: #FDF0EE; border: 1px solid #E8B0A8; border-radius: var(--radius); padding: 24px; text-align: center; color: var(--red); }
 .toast { position: fixed; bottom: 28px; right: 28px; background: var(--black); color: var(--gold); border: 1px solid var(--gold); padding: 12px 20px; border-radius: var(--radius); font-size: 13px; z-index: 9999; opacity: 0; transform: translateY(10px); transition: all 0.3s; pointer-events: none; }
 .toast.show { opacity: 1; transform: translateY(0); }
 .toast.error { color: #F08080; border-color: #F08080; }
-.consultant-sig { max-width: 200px; border: 1px solid #E0D5BA; border-radius: 3px; margin-top: 6px; }
 #app { display: none; }
 </style>
 </head>
@@ -81,27 +81,28 @@ canvas { width: 100%; height: 100%; display: block; border-radius: 2px; }
 
 <div class="main">
 
-  <!-- LOADING -->
   <div class="loading" id="loadingDiv">
-    <div style="font-size:28px;margin-bottom:12px">⏳</div>
-    Chargement de la timesheet…
+    <div class="loading-spinner">⏳</div>
+    <div style="font-size:14px;color:var(--mid)">Chargement de la timesheet…</div>
   </div>
 
-  <!-- APP -->
+  <div class="error-box" id="errorDiv" style="display:none">
+    <div style="font-size:32px;margin-bottom:12px">❌</div>
+    <h3 style="margin-bottom:8px">Lien invalide ou expiré</h3>
+    <p style="font-size:13px">Ce lien de validation n'est plus disponible. Demandez au consultant de soumettre à nouveau sa timesheet.</p>
+  </div>
+
   <div id="app">
 
-    <!-- ALERT -->
-    <div class="alert-box" id="alertBox">
-      ✋ <strong id="managerName"></strong>, vous êtes invité à valider et signer la timesheet ci-dessous avant de l'envoyer à la RH.
+    <div class="alert-box">
+      ✋ <strong id="managerName"></strong>, veuillez vérifier et signer la timesheet ci-dessous avant de l'envoyer à la RH.
     </div>
 
-    <!-- INFOS -->
     <div class="section-label">Informations du consultant</div>
     <div class="card">
       <div class="info-grid" id="infoGrid"></div>
     </div>
 
-    <!-- CALENDRIER -->
     <div class="section-label">Pointage journalier</div>
     <div class="card" style="padding:16px">
       <div style="overflow-x:auto">
@@ -109,20 +110,19 @@ canvas { width: 100%; height: 100%; display: block; border-radius: 2px; }
       </div>
     </div>
 
-    <!-- TOTAUX -->
     <div class="section-label">Récapitulatif</div>
     <div class="card">
       <div class="totals-grid" id="totalsGrid"></div>
     </div>
 
-    <!-- SIGNATURES -->
-    <div class="section-label">Signatures</div>
+    <div class="section-label">Signature</div>
     <div class="card">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
         <div class="sig-box">
           <div class="sig-title">Signature du consultant</div>
-          <div id="consultantSigDisplay" style="background:white;border:1px solid #E0D5BA;border-radius:3px;height:90px;display:flex;align-items:center;justify-content:center">
-            <img id="consultantSigImg" class="consultant-sig" style="max-height:80px;max-width:100%">
+          <div style="background:white;border:1px solid #E0D5BA;border-radius:3px;height:90px;display:flex;align-items:center;justify-content:center;overflow:hidden">
+            <img id="consultantSigImg" style="max-height:85px;max-width:100%;display:none">
+            <span id="noSig" style="font-size:12px;color:var(--light)">Signature non disponible</span>
           </div>
         </div>
         <div class="sig-box">
@@ -135,16 +135,14 @@ canvas { width: 100%; height: 100%; display: block; border-radius: 2px; }
       </div>
     </div>
 
-    <!-- ACTIONS -->
     <div class="actions">
       <button class="btn btn-send" id="btnApprove" onclick="approveAndSend()">✅ Approuver et envoyer à la RH</button>
     </div>
 
-    <!-- SUCCESS -->
     <div class="success-box" id="successBox">
-      <div style="font-size:48px;margin-bottom:12px">✅</div>
+      <div style="font-size:52px;margin-bottom:16px">✅</div>
       <h2>Timesheet approuvée et envoyée !</h2>
-      <p style="font-size:13px;color:var(--mid);margin-top:8px" id="successMsg"></p>
+      <p style="font-size:13px;color:var(--mid);margin-top:8px;line-height:1.6" id="successMsg"></p>
     </div>
 
   </div>
@@ -153,180 +151,210 @@ canvas { width: 100%; height: 100%; display: block; border-radius: 2px; }
 <div class="toast" id="toast"></div>
 
 <script>
-const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbzClwcTlK7ibFDR28MAqy4m2j09EaL4sdvOVQsGzSV2__Tc8DISmqWb5M36BxlzYVdW2w/exec';
-const DAYS = ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'];
-const MONTHS = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
-const STATUS_LABELS = {P:'Présent', CG:'Congé / Leave', AT:'Absent', JF:'Jour Férié', M:'Maladie', DT:'Déplacement'};
+const DAYS = ["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"];
+const MONTHS = ["Janvier","Fevrier","Mars","Avril","Mai","Juin","Juillet","Aout","Septembre","Octobre","Novembre","Decembre"];
+const STATUS_LABELS = {P:"Present", CG:"Conge / Leave", AT:"Absent", JF:"Jour Ferie", M:"Maladie", DT:"Deplacement"};
 
 let tsData = null;
+let webhookUrl = "";
+let tempId = "";
 
-// Charger les données depuis l'URL
-window.addEventListener('DOMContentLoaded', function() {
+window.addEventListener("DOMContentLoaded", async function() {
   const params = new URLSearchParams(window.location.search);
-  const encoded = params.get('data');
+  tempId = params.get("id");
+  webhookUrl = params.get("webhook") ? decodeURIComponent(params.get("webhook")) : "";
 
-  if (!encoded) {
-    document.getElementById('loadingDiv').innerHTML = '<div style="color:#C0392B;font-size:16px">❌ Lien invalide ou expiré.</div>';
+  if (!tempId || !webhookUrl) {
+    showError();
     return;
   }
 
   try {
-    tsData = JSON.parse(atob(decodeURIComponent(encoded)));
-    renderPage(tsData);
-    initSig();
+    // Charger les données via un script tag (contourne CORS)
+    window._timesheetCallback = function(result) {
+      if (!result || !result.data) { showError(); return; }
+      tsData = result.data;
+      renderPage(tsData);
+      initSig();
+    };
+
+    var script = document.createElement("script");
+    script.src = webhookUrl + "?step=get_temp&tempId=" + encodeURIComponent(tempId) + "&callback=_timesheetCallback";
+    script.onerror = function() { showError(); };
+    document.head.appendChild(script);
+
+    // Timeout de sécurité
+    setTimeout(function() {
+      if (!tsData) showError();
+    }, 8000);
+
   } catch(e) {
-    document.getElementById('loadingDiv').innerHTML = '<div style="color:#C0392B">❌ Données invalides.</div>';
+    showError();
   }
 });
 
+function showError() {
+  document.getElementById("loadingDiv").style.display = "none";
+  document.getElementById("errorDiv").style.display = "block";
+}
+
 function renderPage(d) {
-  document.getElementById('loadingDiv').style.display = 'none';
-  document.getElementById('app').style.display = 'block';
-  document.getElementById('headerInfo').textContent = d.month + ' ' + d.year;
-  document.getElementById('managerName').textContent = d.managerBU || 'Manager';
+  document.getElementById("loadingDiv").style.display = "none";
+  document.getElementById("app").style.display = "block";
+  document.getElementById("headerInfo").textContent = (d.month||"") + " " + (d.year||"");
+  document.getElementById("managerName").textContent = d.managerBU || "Manager";
 
-  // Infos
-  document.getElementById('infoGrid').innerHTML = [
-    ['Consultant', d.consultant],
-    ['Poste', d.position],
-    ['Client', d.client],
-    ['Période', d.month + ' ' + d.year],
-    ['Manager BU', d.managerBU],
-    ['Email consultant', d.email]
-  ].map(([l,v]) => '<div class="info-item"><label>' + l + '</label><span>' + (v||'—') + '</span></div>').join('');
+  document.getElementById("infoGrid").innerHTML = [
+    ["Consultant", d.consultant],
+    ["Poste", d.position],
+    ["Client", d.client],
+    ["Periode", (d.month||"") + " " + (d.year||"")],
+    ["Manager BU", d.managerBU],
+    ["Email consultant", d.email]
+  ].map(function(item) {
+    return "<div class=\"info-item\"><label>" + item[0] + "</label><span>" + (item[1]||"--") + "</span></div>";
+  }).join("");
 
-  // Calendrier
-  const mi = MONTHS.indexOf(d.month);
-  const rows = Object.entries(d.dayData).sort(([a],[b]) => +a - +b).map(([day, status]) => {
-    const date = new Date(+d.year, mi, +day);
-    const dow = date.getDay();
-    const isWE = dow === 0 || dow === 6;
-    return '<tr class="' + (isWE ? 'weekend' : '') + '">' +
-      '<td>' + DAYS[dow] + '</td>' +
-      '<td style="text-align:center">' + day + '</td>' +
-      '<td class="status-' + status + '" style="text-align:center">' + status + '</td>' +
-      '<td>' + (STATUS_LABELS[status]||'—') + '</td>' +
-      '</tr>';
-  }).join('');
+  var mi = ["Janvier","Fevrier","Mars","Avril","Mai","Juin","Juillet","Aout","Septembre","Octobre","Novembre","Decembre"].indexOf(d.month);
+  if (mi === -1) {
+    var mFr = ["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"];
+    mi = mFr.indexOf(d.month);
+  }
 
-  document.getElementById('calTable').innerHTML =
-    '<thead><tr><th>Jour</th><th>Date</th><th>Code</th><th>Libellé</th></tr></thead><tbody>' + rows + '</tbody>';
+  var rows = Object.keys(d.dayData).sort(function(a,b){return +a-+b;}).map(function(day) {
+    var status = d.dayData[day];
+    var date = new Date(+d.year, mi, +day);
+    var dow = date.getDay();
+    var isWE = dow === 0 || dow === 6;
+    return "<tr class=\"" + (isWE?"weekend":"") + "\">"
+      + "<td>" + DAYS[dow] + "</td>"
+      + "<td style=\"text-align:center\">" + day + "</td>"
+      + "<td class=\"status-" + status + "\" style=\"text-align:center\">" + status + "</td>"
+      + "<td>" + (STATUS_LABELS[status]||"--") + "</td>"
+      + "</tr>";
+  }).join("");
 
-  // Totaux
-  const tots = [
-    ['Jours présents', d.counts.P, true],
-    ['Congés', d.counts.CG, false],
-    ['Absences', d.counts.AT, false],
-    ['Fériés', d.counts.JF, false],
-    ['Maladie', d.counts.M, false],
-    ['Taux', d.rate + '%', false]
+  document.getElementById("calTable").innerHTML =
+    "<thead><tr><th>Jour</th><th>Date</th><th>Code</th><th>Libelle</th></tr></thead><tbody>" + rows + "</tbody>";
+
+  var tots = [
+    ["Jours presents", d.counts.P, true],
+    ["Conges", d.counts.CG, false],
+    ["Absences", d.counts.AT, false],
+    ["Feries", d.counts.JF, false],
+    ["Maladie", d.counts.M, false],
+    ["Taux", d.rate + "%", false]
   ];
-  document.getElementById('totalsGrid').innerHTML = tots.map(([l,v,h]) =>
-    '<div class="total-box ' + (h?'highlight':'') + '"><div class="total-label">' + l + '</div><div class="total-value">' + v + '</div></div>'
-  ).join('');
+  document.getElementById("totalsGrid").innerHTML = tots.map(function(t) {
+    return "<div class=\"total-box " + (t[2]?"highlight":"") + "\">"
+      + "<div class=\"total-label\">" + t[0] + "</div>"
+      + "<div class=\"total-value\">" + t[1] + "</div></div>";
+  }).join("");
 
-  // Signature consultant
   if (d.sigConsultantData) {
-    document.getElementById('consultantSigImg').src = d.sigConsultantData;
+    var img = document.getElementById("consultantSigImg");
+    img.src = d.sigConsultantData;
+    img.style.display = "block";
+    document.getElementById("noSig").style.display = "none";
   }
 }
 
-// Signature pad
 function initSig() {
-  const canvas = document.getElementById('sigManager');
-  const rect = () => canvas.getBoundingClientRect();
-  let drawing = false, lastX = 0, lastY = 0;
-  const ctx = canvas.getContext('2d');
-  ctx.strokeStyle = '#1A1A1A'; ctx.lineWidth = 1.8; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  var canvas = document.getElementById("sigManager");
+  var drawing = false, lastX = 0, lastY = 0;
+  var ctx = canvas.getContext("2d");
+  ctx.strokeStyle = "#1A1A1A"; ctx.lineWidth = 1.8; ctx.lineCap = "round"; ctx.lineJoin = "round";
 
   function getPos(e) {
-    const r = rect();
-    const src = e.touches ? e.touches[0] : e;
+    var r = canvas.getBoundingClientRect();
+    var src = e.touches ? e.touches[0] : e;
     return [(src.clientX - r.left) * (canvas.width / r.width), (src.clientY - r.top) * (canvas.height / r.height)];
   }
-  canvas.addEventListener('mousedown', e => { drawing = true; [lastX, lastY] = getPos(e); });
-  canvas.addEventListener('touchstart', e => { e.preventDefault(); drawing = true; [lastX, lastY] = getPos(e); }, {passive:false});
-  canvas.addEventListener('mousemove', e => {
+  canvas.addEventListener("mousedown", function(e) { drawing = true; var p = getPos(e); lastX = p[0]; lastY = p[1]; });
+  canvas.addEventListener("touchstart", function(e) { e.preventDefault(); drawing = true; var p = getPos(e); lastX = p[0]; lastY = p[1]; }, {passive:false});
+  canvas.addEventListener("mousemove", function(e) {
     if (!drawing) return;
-    const [x, y] = getPos(e);
-    ctx.beginPath(); ctx.moveTo(lastX, lastY); ctx.lineTo(x, y); ctx.stroke();
-    [lastX, lastY] = [x, y];
+    var p = getPos(e);
+    ctx.beginPath(); ctx.moveTo(lastX, lastY); ctx.lineTo(p[0], p[1]); ctx.stroke();
+    lastX = p[0]; lastY = p[1];
   });
-  canvas.addEventListener('touchmove', e => {
+  canvas.addEventListener("touchmove", function(e) {
     e.preventDefault();
     if (!drawing) return;
-    const [x, y] = getPos(e);
-    ctx.beginPath(); ctx.moveTo(lastX, lastY); ctx.lineTo(x, y); ctx.stroke();
-    [lastX, lastY] = [x, y];
+    var p = getPos(e);
+    ctx.beginPath(); ctx.moveTo(lastX, lastY); ctx.lineTo(p[0], p[1]); ctx.stroke();
+    lastX = p[0]; lastY = p[1];
   }, {passive:false});
-  ['mouseup','mouseleave','touchend'].forEach(ev => canvas.addEventListener(ev, () => drawing = false));
+  ["mouseup","mouseleave","touchend"].forEach(function(ev) {
+    canvas.addEventListener(ev, function() { drawing = false; });
+  });
 }
 
 function clearSig() {
-  const c = document.getElementById('sigManager');
-  c.getContext('2d').clearRect(0, 0, c.width, c.height);
+  var c = document.getElementById("sigManager");
+  c.getContext("2d").clearRect(0, 0, c.width, c.height);
 }
 
 async function approveAndSend() {
-  const sigM = document.getElementById('sigManager');
-  const blank = !sigM.getContext('2d').getImageData(0,0,sigM.width,sigM.height).data.some(v => v !== 0);
-  if (blank) { showToast('Veuillez signer avant d\'approuver.', 'error'); return; }
+  var sigM = document.getElementById("sigManager");
+  var blank = !sigM.getContext("2d").getImageData(0,0,sigM.width,sigM.height).data.some(function(v){return v!==0;});
+  if (blank) { showToast("Veuillez signer avant d approuver.", "error"); return; }
 
-  const btn = document.getElementById('btnApprove');
+  var btn = document.getElementById("btnApprove");
   btn.disabled = true;
-  btn.textContent = '⏳ Envoi en cours…';
+  btn.textContent = "Envoi en cours...";
 
-  const payload = Object.assign({}, tsData, {
+  var payload = Object.assign({}, tsData, {
     sigManagerData: sigM.toDataURL(),
-    step: 'manager',
-    approvedByManager: true
+    step: "manager",
+    approvedByManager: true,
+    tempId: tempId
   });
 
   try {
-    await new Promise((resolve) => {
-      const iframe = document.createElement('iframe');
-      iframe.name = 'mgr_iframe';
-      iframe.style.display = 'none';
+    await new Promise(function(resolve) {
+      var iframe = document.createElement("iframe");
+      iframe.name = "mgr_iframe";
+      iframe.style.display = "none";
       document.body.appendChild(iframe);
 
-      const form = document.createElement('form');
-      form.method = 'POST';
-      form.action = WEBHOOK_URL;
-      form.target = 'mgr_iframe';
-      form.style.display = 'none';
+      var form = document.createElement("form");
+      form.method = "POST";
+      form.action = webhookUrl;
+      form.target = "mgr_iframe";
+      form.style.display = "none";
 
-      const input = document.createElement('input');
-      input.type = 'hidden';
-      input.name = 'payload';
+      var input = document.createElement("input");
+      input.type = "hidden";
+      input.name = "payload";
       input.value = JSON.stringify(payload);
       form.appendChild(input);
       document.body.appendChild(form);
-      iframe.onload = () => resolve();
+      iframe.onload = function() { resolve(); };
       form.submit();
-      setTimeout(resolve, 4000);
+      setTimeout(resolve, 5000);
     });
 
-    // Cacher le formulaire, afficher succès
-    document.getElementById('alertBox').style.display = 'none';
-    document.getElementById('btnApprove').style.display = 'none';
-    document.getElementById('successBox').style.display = 'block';
-    document.getElementById('successMsg').textContent =
-      'La timesheet de ' + tsData.consultant + ' pour ' + tsData.month + ' ' + tsData.year +
-      ' a été transmise à la RH (maite.mengue@blackgold-consulting.com) et sauvegardée sur Google Drive.';
+    document.getElementById("alertBox") && (document.getElementById("alertBox").style.display = "none");
+    document.getElementById("btnApprove").style.display = "none";
+    document.getElementById("successBox").style.display = "block";
+    document.getElementById("successMsg").textContent =
+      "La timesheet de " + (tsData.consultant||"") + " pour " + (tsData.month||"") + " " + (tsData.year||"") +
+      " a ete transmise a la RH et sauvegardee sur Google Drive.";
 
   } catch(e) {
-    showToast('Erreur lors de l\'envoi. Réessayez.', 'error');
+    showToast("Erreur lors de l envoi. Reessayez.", "error");
     btn.disabled = false;
-    btn.textContent = '✅ Approuver et envoyer à la RH';
+    btn.textContent = "Approuver et envoyer a la RH";
   }
 }
 
 function showToast(msg, type) {
-  const t = document.getElementById('toast');
+  var t = document.getElementById("toast");
   t.textContent = msg;
-  t.className = 'toast show' + (type ? ' ' + type : '');
+  t.className = "toast show" + (type ? " " + type : "");
   clearTimeout(t._t);
-  t._t = setTimeout(() => t.classList.remove('show'), 3200);
+  t._t = setTimeout(function() { t.classList.remove("show"); }, 3200);
 }
 </script>
 </body>
